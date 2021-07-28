@@ -3,3 +3,8 @@
 ################################################################################
 
 /DistribueMonnaie/bin/Debug
+/DistribueMonnaie/obj/Debug
+/DistribueMonnaie.Business/bin/Debug
+/DistribueMonnaie.Business/obj/Debug
+/DistribueMonnaie.Entities/obj/Debug
+/DistribueMonnaie.Entities/bin/Debug
