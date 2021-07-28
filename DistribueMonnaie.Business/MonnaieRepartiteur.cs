@@ -32,5 +32,24 @@ namespace DistribueMonnaie.Business
             }
             return resultat;
         }
+
+        public Dictionary<int, int> RepartieParDivision(int montantARepartir)
+        {
+            var monnaies = new List<int>() { 50, 20, 10, 5, 2, 1 };
+            var repartition = new Dictionary<int, int>();
+            int reste = montantARepartir;
+            foreach (var monnaie in monnaies)
+            {
+                int diviseurEntier = reste / monnaie;
+                if (diviseurEntier > 0)
+                {
+                    repartition.Add(monnaie, diviseurEntier);
+                    reste -= (diviseurEntier * monnaie);
+                }
+            }
+            return repartition;
+        }
+
+
     }
 }

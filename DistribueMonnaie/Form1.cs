@@ -33,17 +33,36 @@ namespace DistribueMonnaie
 
             var monnaieRepartiteur = new MonnaieRepartiteur();
             var piecesEtBillets = monnaieRepartiteur.RépartitMontant(montantARepartir);
-            AffichePiecesEtBillets(piecesEtBillets);
+            var repartitionParDivision = monnaieRepartiteur.RepartieParDivision(montantARepartir);
+            AffichePiecesEtBillets(piecesEtBillets, repartitionParDivision);
         }
 
-        private void AffichePiecesEtBillets(List<IMonnaie> piecesEtBillets)
+        private void AffichePiecesEtBillets(List<IMonnaie> piecesEtBillets, Dictionary<int, int> repartitionParDivision)
         {
+            //methode plus simple et plus rapide
             var dataTable = new DataTable();
+            dataTable.Columns.Add("Nombre");
+            dataTable.Columns.Add("Montant");
+            foreach (int montant in repartitionParDivision.Keys)
+            {
+                var dr = dataTable.NewRow();
+                dataTable.Rows.Add(dr);
+                dr["Nombre"] = repartitionParDivision[montant];
+                dr["Montant"] = montant;
+            }
+            this.dgvDataGridView2.DataSource = dataTable;
+            this.dgvDataGridView2.Refresh();
+
+
+            //methode plus compliquée et non optimisée
+            dataTable = new DataTable();
             dataTable.Columns.Add("Nombre");
             dataTable.Columns.Add("Type");
             dataTable.Columns.Add("Montant");
 
-            var monnaieGrouped = piecesEtBillets.GroupBy(m => m.Montant).Select(m => new { Montant = m.Key, Nb = m.Count(), Type=m.First().GetType() });
+            var monnaieGrouped = piecesEtBillets
+                .GroupBy(m => m.Montant)
+                .Select(m => new { Montant = m.Key, Nb = m.Count(), Type=m.First().GetType() });
 
             foreach (var monnaie in monnaieGrouped)
             {
@@ -56,6 +75,7 @@ namespace DistribueMonnaie
 
             this.dgvDataGridView1.DataSource = dataTable;
             this.dgvDataGridView1.Refresh();
+
         }
 
     }

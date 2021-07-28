@@ -35,7 +35,9 @@ namespace DistribueMonnaie
             this.btnRepartir = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -86,18 +88,29 @@ namespace DistribueMonnaie
             // dgvDataGridView1
             // 
             this.dgvDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDataGridView1.Location = new System.Drawing.Point(191, 147);
+            this.dgvDataGridView1.Location = new System.Drawing.Point(46, 150);
             this.dgvDataGridView1.Name = "dgvDataGridView1";
             this.dgvDataGridView1.RowHeadersWidth = 51;
             this.dgvDataGridView1.RowTemplate.Height = 24;
-            this.dgvDataGridView1.Size = new System.Drawing.Size(568, 275);
+            this.dgvDataGridView1.Size = new System.Drawing.Size(562, 275);
             this.dgvDataGridView1.TabIndex = 5;
+            // 
+            // dgvDataGridView2
+            // 
+            this.dgvDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDataGridView2.Location = new System.Drawing.Point(629, 150);
+            this.dgvDataGridView2.Name = "dgvDataGridView2";
+            this.dgvDataGridView2.RowHeadersWidth = 51;
+            this.dgvDataGridView2.RowTemplate.Height = 24;
+            this.dgvDataGridView2.Size = new System.Drawing.Size(513, 275);
+            this.dgvDataGridView2.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1171, 450);
+            this.Controls.Add(this.dgvDataGridView2);
             this.Controls.Add(this.dgvDataGridView1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnRepartir);
@@ -108,6 +121,7 @@ namespace DistribueMonnaie
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,6 +135,7 @@ namespace DistribueMonnaie
         private System.Windows.Forms.Button btnRepartir;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvDataGridView1;
+        private System.Windows.Forms.DataGridView dgvDataGridView2;
     }
 }
 
